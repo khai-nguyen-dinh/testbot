@@ -1,0 +1,166 @@
+<aiml version="1.0.1" encoding="UTF-8">
+  <category>
+    <pattern>XIN CHÀO</pattern>
+      <template>
+	      <random>
+		      <li>xin chào</li>
+		      <li>bạn lại muốn vay tiền hả?</li>
+		      <li>chào thân ái và đoàn kết!</li>
+		      <li>chào</li>
+		      <li>hello.</li>
+		      <li>hi</li>
+	      </random>
+      </template>
+  </category>
+
+  <category>
+    <pattern>BẠN CÓ KHỎE *</pattern>
+      <template>
+	      <random>
+		      <li>Cảm ơn tôi khỏe!</li>
+		      <li>khỏe lắm</li>
+		      <li>khỏe!</li>
+	      </random>
+      </template>
+  </category>
+
+  <category>
+    <pattern>BẠN TÊN LÀ *</pattern>
+      <template>
+        <random>
+	        <li>Tôi tên là plus!</li>
+	        <li>tao tên là plus</li>
+	        <li>không có tên</li>
+        </random>
+      </template>
+  </category>
+
+  <category>
+    <pattern>CON GÀ CÓ MẤY CHÂN *</pattern>
+      <template>
+        Con gà có 2 chân.
+      </template>
+  </category>
+
+  <category>
+    <pattern>*</pattern>
+      <template>
+        <random>
+	        <li>bạn tên là gì?</li>
+	        <li>bạn bao nhiêu tuổi?</li>
+	        <li>bạn có gấu chưa? <get name="username"/></li>
+	        <li>bạn đang làm nghề gì? <get name="username"/></li>
+	        <li>bạn có thích cà phê? <get name="username"/></li>
+	        <li>tôi muốn chịch bạn!<get name="username"/></li>
+	        <li>bạn muốn nói gì <get name="username"/></li>
+	        <li>tôi không hiểu bạn muốn nói gì <get name="username"/></li>
+	        <li>bạn là người hay động vật có vú vậy?</li>
+	        <li>bạn có bị gay? <get name="username"/></li>
+	        <li>toi yeu ban <get name="username"/></li>
+        </random>
+      </template>
+  </category>
+
+  <category>
+    <pattern>LÁ CÂY CÓ MÀU *</pattern>
+      <template>
+        Lá cây có màu xanh.<get name="username"/>
+      </template>
+  </category>
+
+  <category>
+	  <pattern>BẠN CÓ * KHÔNG *</pattern>
+	    <template>
+	        tôi có <star index="1"/>
+	    </template>
+  </category>
+
+	<category>
+		<pattern>BẠN CÓ BIẾT *</pattern>
+		  <template>
+		      tôi có biết<star index="1"/>
+		  </template>
+	</category>
+
+	<category>
+		<pattern>BẠN CÓ BIẾT * NÀO CÓ * KHÔNG</pattern>
+		  <template>
+		      tôi không biết <star index="1"/> nào có <star index="2"/>
+		  </template>
+	</category>
+
+	<category>
+		<pattern>BẠN CÓ * KHÔNG *</pattern>
+		  <template>
+		      tôi có <star index="1"/>
+		  </template>
+	</category>
+
+	<category>
+		<pattern>CÁI GÌ *</pattern>
+		  <template>
+		      <srai>BẠN CÓ BIẾT <star/></srai>
+		  </template>
+	</category>
+
+	<category>
+		<pattern>TÔI TÊN LÀ *</pattern>
+		  <template>
+		      Tên bạn hay quá <think><set name="username">!<star/></set></think>
+		  </template>
+	</category>
+
+	<category>
+		<pattern>NÓI * VỀ ĐỘNG VẬT</pattern>
+		  <template>
+		     bạn có thích chó?<set name="topic">động vật</set>set>
+		  </template>
+	</category>
+	<topic name="động vật">
+	<category>
+		<pattern>CÓ</pattern>
+		<that>bạn có thích chó?</that>
+		  <template>
+		      Tôi thích chó.
+		  </template>
+	</category>
+	<category>
+		<pattern>KHÔNG</pattern>
+		<that>bạn có thích chó?</that>
+		  <template>
+		      Tôi rất yêu chó.
+		  </template>
+	</category>
+</topic>
+
+<category>
+		<pattern>HÔM NAY BẠN *</pattern>
+		  <template>
+		  	<condition name="status" value="">
+		  	<random>
+		      <li><think><set name="status">vui</set></think></li>
+		      <li><think><set name="status">buồn</set></think></li>
+		      <li><think><set name="status">thoải mái</set></think></li>
+		      <li><think><set name="status">bình thường</set></think></li>
+		      <li><think><set name="status">dễ chịu</set></think></li>
+	      </random>
+	         </condition>
+		      
+		      <condition name="status" value="buồn">
+		      	tôi dang buồn!
+		      </condition>
+		      <condition name="status" value="vui">
+		      	tôi vui!
+		      </condition>
+		      <condition name="status" value="thoải mái">
+		      	tôi cảm thấy thoải mái!
+		      </condition>
+		      <condition name="status" value="bình thường">
+		      	tôi bình thường!
+		      </condition>
+		      <condition name="status" value="dễ chịu">
+		      	tôi dễ chịu!
+		      </condition>
+		  </template>
+	</category>
+</aiml>
